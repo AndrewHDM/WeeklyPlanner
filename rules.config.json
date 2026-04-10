@@ -1,0 +1,13 @@
+{
+  "workoutRules": {
+    "travelIntensityMultiplier": 0.7,
+    "overloadedWeekUsesMinimumViable": true,
+    "lowRecoveryThreshold": 2,
+    "highStressThreshold": 4,
+    "prioritizeConsistency": true
+  },
+  "templates": {
+    "briefTitle": "Weekly Planning Brief",
+    "monkHeading": "Monk Manual Weekly Setup"
+  }
+}
