@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weekly Planner MVP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="app-header">
+        <h1>Weekly Planner</h1>
+        <p>Plan smarter weeks with realistic training and energy-aware decisions.</p>
+      </header>
+
+      <section class="card" id="commitments-card">
+        <div class="section-heading">
+          <h2>1) Recurring commitments</h2>
+          <button id="saveCommitmentsBtn" class="secondary-btn">Save commitments</button>
+        </div>
+        <p class="helper-text">Add regular blocks (work, school run, appointments, etc.).</p>
+        <form id="commitmentForm" class="inline-form">
+          <input type="text" id="commitmentName" placeholder="Commitment name" required />
+          <select id="commitmentDay" required>
+            <option value="">Day</option>
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+          </select>
+          <input type="text" id="commitmentWindow" placeholder="Time window (e.g., 9-11am)" required />
+          <button type="submit">Add</button>
+        </form>
+        <ul id="commitmentList" class="list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>2) Weekly reset input</h2>
+        <form id="weeklyForm" class="grid-form">
+          <label>Standing changes
+            <textarea name="standingChanges" rows="2" placeholder="Changes to recurring schedule this week"></textarea>
+          </label>
+          <label>One-off events
+            <textarea name="oneOffEvents" rows="2" placeholder="Special events, meetings, appointments"></textarea>
+          </label>
+          <label>Non-negotiables
+            <textarea name="nonNegotiables" rows="2" placeholder="Must-do items"></textarea>
+          </label>
+          <label>Weekly focus
+            <input name="weeklyFocus" type="text" placeholder="Main focus for the week" />
+          </label>
+          <label>Recovery (1-5)
+            <input name="recovery" type="number" min="1" max="5" value="3" required />
+          </label>
+          <label>Sleep consistency (1-5)
+            <input name="sleepConsistency" type="number" min="1" max="5" value="3" required />
+          </label>
+          <label>Stress (1-5)
+            <input name="stress" type="number" min="1" max="5" value="3" required />
+          </label>
+          <label>Travel this week?
+            <select name="travel" required>
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+          </label>
+          <label>Week type
+            <select name="weekType" required>
+              <option value="normal">Normal</option>
+              <option value="overloaded">Overloaded</option>
+              <option value="rebuild">Rebuild</option>
+            </select>
+          </label>
+          <label>Fitness priorities
+            <textarea name="fitnessPriorities" rows="2" placeholder="Strength, cardio, mobility, etc."></textarea>
+          </label>
+          <label>Realistic sessions
+            <input name="realisticSessions" type="number" min="0" max="14" value="4" required />
+          </label>
+          <label>Minimum viable sessions
+            <input name="minimumViableSessions" type="number" min="0" max="14" value="2" required />
+          </label>
+          <button type="submit" class="primary-btn">Generate weekly outputs</button>
+        </form>
+      </section>
+
+      <section class="card outputs" id="outputs">
+        <h2>3) Outputs</h2>
+        <article>
+          <div class="section-heading">
+            <h3>Detailed planning brief</h3>
+            <button data-copy="briefOutput" class="secondary-btn">Copy</button>
+          </div>
+          <pre id="briefOutput"></pre>
+        </article>
+        <article>
+          <div class="section-heading">
+            <h3>Monk Manual copy block</h3>
+            <button data-copy="monkOutput" class="secondary-btn">Copy</button>
+          </div>
+          <pre id="monkOutput"></pre>
+        </article>
+        <article>
+          <div class="section-heading">
+            <h3>Suggested workout plan</h3>
+            <button data-copy="workoutOutput" class="secondary-btn">Copy</button>
+          </div>
+          <pre id="workoutOutput"></pre>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
